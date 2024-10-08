@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import useHabitStore from '../store/store'
 
 // Component names should be PascalCase
 const AddHabitForm = () => {
@@ -9,9 +10,16 @@ const AddHabitForm = () => {
         setFrequency(e.target.value as "daily" | "weekly")
     }
 
+    const { habits, addHabit } = useHabitStore()
+    console.log(habits);
+    
+
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        // Add form submission logic here
+        if (name.trim()) {
+            AddHabit(name, frequency) 
+            setName('')
+        }
     }
 
     return (
