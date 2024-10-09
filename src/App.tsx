@@ -9,7 +9,7 @@ function App() {
  console.log(store);
  
   return (
-    <div>
+    <div className="p-12">
       <h1 className="text-3xl text-center py-8 text-blue-500 font-bold underline">
       Habit Tracker
       </h1>
