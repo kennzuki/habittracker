@@ -1,4 +1,5 @@
-import AddHabitForm from "./components/addHabitForm";
+
+import AddHabitForm from "./components/AddHabitForm";
 import Footer from "./components/Footer";
 import HabitList from "./components/HabitList";
 
