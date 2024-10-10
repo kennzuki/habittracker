@@ -2,22 +2,22 @@ import { useState } from 'react'
 import useHabitStore from '../store/store'
 
 // Component names should be PascalCase
-const AddHabitForm = () => {
+const AddHabitForm:React.FC = () => {
     const [name, setName] = useState("")
     const [frequency, setFrequency] = useState<"daily" | "weekly">("daily")
+    const addHabit = useHabitStore((state) => state.addHabit);
 
     const handleFrequencyChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setFrequency(e.target.value as "daily" | "weekly")
     }
 
-    const { habits, addHabit } = useHabitStore()
-    console.log(habits);
+   
     
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         if (name.trim()) {
-            AddHabit(name, frequency) 
+            addHabit(name, frequency) 
             setName('')
         }
     }
