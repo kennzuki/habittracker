@@ -3,7 +3,7 @@ import { CiCircleCheck } from 'react-icons/ci';
 import useHabitStore from '../store/store';
 
 const HabitList = () => {
-  const { habits } = useHabitStore();
+  const { habits,removeHabit } = useHabitStore();
   const today = new Date().toISOString().split("T")[0];
 
   return (
@@ -19,7 +19,7 @@ const HabitList = () => {
                     ? "Completed"
                     : "Mark Complete"}
             </button>
-            <button className='text-red-500'>
+            <button onClick={()=>removeHabit(habit.id)} className='text-red-500'>
               <FaRegTrashAlt /> Delete
             </button>
           </section>

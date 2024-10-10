@@ -33,9 +33,15 @@ const useHabitStore = create<HabitState>()(devtools((set)=> {
                 ]
             }
         }),
-        
+        removeHabit: (id)=> {
+            set((state) => ({
+            habits:state.habits.filter((habit)=>habit.id !== id)
+        }))
+            
+        },
     }
-}))
+})
+)
 
 
 export default useHabitStore
