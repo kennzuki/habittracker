@@ -1,5 +1,5 @@
 import { create } from "zustand"
-import { devtools } from "zustand/middleware";
+import { devtools, persist } from "zustand/middleware";
 
 export interface Habit{
     id: string;
@@ -13,11 +13,11 @@ interface HabitState{
     habits: Habit[],
     addHabit: (name: string, frequency: "daily" | "weekly") => void
     removeHabit: (id: string) => void
-    toggleHabit:(id:string)=>void
+    
    
 }
 
-const useHabitStore = create<HabitState>()(devtools((set)=> {
+const useHabitStore = create<HabitState>()(devtools(persist((set)=> {
     return {
         habits: [],
         addHabit: (name, frequency) => set((state)=> {
@@ -38,9 +38,13 @@ const useHabitStore = create<HabitState>()(devtools((set)=> {
             habits:state.habits.filter((habit)=>habit.id !== id)
         }))
             
-        },
+        }
     }
-})
+}, {
+    name:'habits-local'
+}
+)
+)
 )
 
 

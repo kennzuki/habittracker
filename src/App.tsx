@@ -1,6 +1,7 @@
 import AddHabitForm from "./components/addHabitForm";
+import Footer from "./components/Footer";
 import HabitList from "./components/HabitList";
-import HabitStats from "./components/HabitStats";
+
 import useHabitStore from "./store/store"
 
 
@@ -15,7 +16,7 @@ function App() {
       </h1>
       <AddHabitForm />
       <HabitList />
-      <HabitStats/>
+      <Footer/>
      
     </div>
   )
